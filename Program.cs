@@ -16,32 +16,26 @@ int nColumns = int.Parse(input[1]);
 //create Person one demential array nRows x nColumns length and fill it with random data 
 Person[] people = new Person[nRows * nColumns];
 for (int i = 0; i < people.Length; i++)
-    people[i] = new Person { Name = "name" + i, LastName = "lastName" + i, BirthDate = new DateTime(2000 + i, 1, 1) };
+    people[i] = new Person { Name = "name" + i, LastName = "lastName" + i, BirthDate = new DateTime(2000, 1, 1) };
 
 //create Person two demential array nRows x nColumns length and fill it with random data
 Person[,] people2D = new Person[nRows, nColumns];
 for (int i = 0; i < nRows; i++)
     for (int j = 0; j < nColumns; j++)
-        people2D[i, j] = new Person { Name = "name" + i + j, LastName = "lastName" + i + j, BirthDate = new DateTime(2000 + i + j, 1, 1) };
+        people2D[i, j] = new Person { Name = "name" + i + j, LastName = "lastName" + i + j, BirthDate = new DateTime(2000, 1, 1) };
 //create Person jagged array nRows x nColumns length where first row has 1 element, second - 2 and so on, but last row should have nAll - nActual(change), and fill it with random data
-int n = (int) Math.Round(Math.Sqrt(2*nRows*nColumns + 1 / 4) - 1 / 2);
+int n = (int)Math.Round(Math.Sqrt(2 * nRows * nColumns + 1 / 4) - 1 / 2);
 Person[][] peopleJagged = new Person[n][];
-for (int i = 0; i < n-1; i++)
+for (int i = 0; i < n - 1; i++)
 {
     peopleJagged[i] = new Person[i + 1];
     for (int j = 0; j < i + 1; j++)
-        peopleJagged[i][j] = new Person { Name = "name" + i + j, LastName = "lastName" + i + j, BirthDate = new DateTime(2000 + i + j, 1, 1) };
+        peopleJagged[i][j] = new Person { Name = "name" + i + j, LastName = "lastName" + i + j, BirthDate = new DateTime(2000, 1, 1) };
 }
 int delta = nRows * nColumns - n * (n - 1) / 2;
-peopleJagged[n-1] = new Person[delta];
+peopleJagged[n - 1] = new Person[delta];
 for (int i = 0; i < delta; i++)
-    peopleJagged[n-1][i] = new Person { Name = "name" + i + delta, LastName = "lastName" + i + delta, BirthDate = new DateTime(2000 + i + delta, 1, 1) };
-
-// output jagged array
-for (int i = 0; i < peopleJagged.Length; i++)
-{
-    Console.WriteLine($"{i+1}: {string.Join(" ", peopleJagged[i].Cast<object>())}");
-}
+    peopleJagged[n - 1][i] = new Person { Name = "name" + i + delta, LastName = "lastName" + i + delta, BirthDate = new DateTime(2000 + delta, 1, 1) };
 
 var getTime = (Action action) =>
 {
