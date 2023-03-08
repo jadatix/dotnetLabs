@@ -1,29 +1,26 @@
 public class Person
 {
-    private string name { get; init; }
-    private string lastName { get; init; }
-    private System.DateTime birthDate { get; init; }
+    private string _name;
+    private string _lastName;
+    private System.DateTime _birthDate;
+
+    public string Name { get => _name; set => _name = value; }
+    public string LastName { get => _lastName; init => _lastName = value; }
+    public System.DateTime BirthDate { get => _birthDate; init => _birthDate = value; }
+
     public int year
     {
-        get { return year; }
-        init
-        {
-            birthDate = new DateTime(year, birthDate.Month, birthDate.Day);
-        }
+        get => _birthDate.Year;
+        set => _birthDate = new DateTime(year, _birthDate.Month, _birthDate.Day);
     }
-    public Person() { name = ""; lastName = ""; }
+    public Person() : this("", "", new DateTime()) { }
     public Person(string name, string lastName, System.DateTime birthDate)
     {
-        this.name = name;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
+        _name = name;
+        _lastName = lastName;
+        _birthDate = birthDate;
     }
-    
-    public override string ToString()
-    {
-        return "\nname: " +  name + " last_name: " + lastName + " birth date: " + birthDate;
-    }
-    public virtual string ToShortString(){
-        return "\nname: " + name + " last_name: " + lastName;
-    }
+
+    public sealed override string ToString() => "\nname: " + _name + " last_name: " + _lastName + " birth date: " + _birthDate;
+    public virtual string ToShortString() => "\nname: " + _name + " last_name: " + _lastName;
 }
