@@ -2,7 +2,7 @@
 Console.WriteLine(researchTeam);
 Console.WriteLine($"2yrs {researchTeam[TimeFrame.TwoYears]}, year {researchTeam[TimeFrame.Year]}, long {researchTeam[TimeFrame.Long]}");
 
-researchTeam = new ResearchTeam { Topic = "New topic", OrganizationName = "New organizationName", RegistrationNumber = 1, ResearchDuretion = TimeFrame.Year, Publications = new Paper[] { new Paper { PublicationName = "title", Author = new Person { Name = "firstName", LastName = "lastName", BirthDate = new DateTime(2000, 1, 1) }, PublicationDate = new DateTime(2000, 1, 1) } } };
+researchTeam = new ResearchTeam { Topic = "New topic", OrganizationName = "New organizationName", RegistrationNumber = 1, ResearchDuration = TimeFrame.Year, Publications = new Paper[] { new Paper { PublicationName = "title", Author = new Person { Name = "firstName", LastName = "lastName", BirthDate = new DateTime(2000, 1, 1) }, PublicationDate = new DateTime(2000, 1, 1) } } };
 Console.WriteLine(researchTeam);
 researchTeam.AddPaper(new Paper { PublicationName = "title", Author = new Person { Name = "firstName", LastName = "lastName", BirthDate = new DateTime(2000, 1, 1) }, PublicationDate = new DateTime(2000, 1, 1) });
 Console.WriteLine(researchTeam);

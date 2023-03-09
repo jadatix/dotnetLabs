@@ -3,22 +3,22 @@ class ResearchTeam
     private string _topic;
     private string _organizationName;
     private int _registrationNumber;
-    private TimeFrame _researchDuretion;
-    private Paper[] _publications;
+    private TimeFrame _researchDuration;
+    private Paper[] _pubications;
 
     public string Topic { get => _topic; init => _topic = value; }
     public string OrganizationName { get => _organizationName; init => _organizationName = value; }
     public int RegistrationNumber { get => _registrationNumber; init => _registrationNumber = value; }
-    public TimeFrame ResearchDuretion { get => _researchDuretion; init => _researchDuretion = value; }
+    public TimeFrame ResearchDuration { get => _researchDuration; init => _researchDuration = value; }
     public Paper[] Publications { get => _publications; init => _publications = value; }
     public Paper? LastPublication
     {
         get
         {
-            if (_publications == null || _publications.Length == 0)
+            if (Publications == null || Publications.Length == 0)
                 return null;
-            Paper lastPublication = _publications[0];
-            foreach (Paper publication in _publications)
+            Paper lastPublication = Publications[0];
+            foreach (Paper publication in Publications)
             {
                 if (publication.PublicationDate > lastPublication.PublicationDate)
                     lastPublication = publication;
@@ -28,40 +28,40 @@ class ResearchTeam
     }
     public bool this[TimeFrame timeFrame]
     {
-        get => _researchDuretion == timeFrame;
+        get => ResearchDuration == timeFrame;
     }
     public void AddPaper(params Paper[] papers)
     {
         if (papers == null)
             return;
-        if (_publications == null)
-            _publications = papers;
+        if (Publications == null)
+            Publications = papers;
         else
         {
-            Paper[] newPublications = new Paper[_publications.Length + papers.Length];
-            _publications.CopyTo(newPublications, 0);
-            papers.CopyTo(newPublications, _publications.Length);
-            _publications = newPublications;
+            Paper[] newPublications = new Paper[Publications.Length + papers.Length];
+            Publications.CopyTo(newPublications, 0);
+            papers.CopyTo(newPublications, Publications.Length);
+            Publications = newPublications;
         }
     }
     public sealed override string ToString()
     {
-        string result = "\ntopic: " + _topic + " organization name: " + _organizationName + " registration number: " + _registrationNumber + " research duretion: " + _researchDuretion;
-        if (_publications != null)
+        string result = "\ntopic: " + Topic + " organization name: " + OrganizationName + " registration number: " + RegistrationNumber + " research duretion: " + ResearchDuration;
+        if (Publications != null)
         {
             result += "\npublications:";
-            foreach (Paper publication in _publications)
+            foreach (Paper publication in Publications)
                 result += publication;
         }
         return result;
     }
-    public ResearchTeam(string _topic, string _organizationName, int _registrationNumber, TimeFrame _researchDuretion, Paper[] _publications)
+    public ResearchTeam(string topic, string organizationName, int registrationNumber, TimeFrame researchDuretion, Paper[] Pubications)
     {
-        this._topic = _topic;
-        this._organizationName = _organizationName;
-        this._registrationNumber = _registrationNumber;
-        this._researchDuretion = _researchDuretion;
-        this._publications = _publications;
+        Topic = topic;
+        OrganizationName = organizationName;
+        RegistrationNumber = registrationNumber;
+        ResearchDuration = researchDuretion;
+        Pubications = Pubications;
     }
 
     public ResearchTeam() : this("", "", 0, TimeFrame.Year, new Paper[0]) { }
