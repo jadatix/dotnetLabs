@@ -1,16 +1,16 @@
 class ResearchTeam
 {
-    private string _topic;
-    private string _organizationName;
+    private string _topic = default!;
+    private string _organizationName = default!;
     private int _registrationNumber;
     private TimeFrame _researchDuration;
-    private Paper[] _pubications;
+    private Paper[] _publications = default!;
 
     public string Topic { get => _topic; init => _topic = value; }
     public string OrganizationName { get => _organizationName; init => _organizationName = value; }
     public int RegistrationNumber { get => _registrationNumber; init => _registrationNumber = value; }
     public TimeFrame ResearchDuration { get => _researchDuration; init => _researchDuration = value; }
-    public Paper[] Publications { get => _publications; init => _publications = value; }
+    public Paper[] Publications { get => _publications; set => _publications = value; }
     public Paper? LastPublication
     {
         get
@@ -55,13 +55,13 @@ class ResearchTeam
         }
         return result;
     }
-    public ResearchTeam(string topic, string organizationName, int registrationNumber, TimeFrame researchDuretion, Paper[] Pubications)
+    public ResearchTeam(string topic, string organizationName, int registrationNumber, TimeFrame researchDuretion, Paper[] pubications)
     {
         Topic = topic;
         OrganizationName = organizationName;
         RegistrationNumber = registrationNumber;
         ResearchDuration = researchDuretion;
-        Pubications = Pubications;
+        Publications = pubications;
     }
 
     public ResearchTeam() : this("", "", 0, TimeFrame.Year, new Paper[0]) { }
