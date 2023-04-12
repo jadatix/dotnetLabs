@@ -5,9 +5,9 @@
 - [ ] in progress
 ## Progress:
 - [x] lab 1
-- [ ] lab 2
-## ToDo:
+- [x] lab 2
 - [ ] lab 3
+## ToDo:
 - [ ] lab 4
 - [ ] lab 5
 - [ ] lab 6
