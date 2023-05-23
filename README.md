@@ -7,8 +7,8 @@
 - [x] lab 1
 - [x] lab 2
 - [x] lab 7
-## ToDo:
 - [ ] lab 3
+- [x] lab 6
+## ToDo:
 - [ ] lab 4
 - [ ] lab 5
-- [ ] lab 6
